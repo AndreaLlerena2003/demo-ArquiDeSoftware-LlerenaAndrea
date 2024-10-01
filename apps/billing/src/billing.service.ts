@@ -8,7 +8,7 @@ export class BillingService {
     return 'Hello World!';
   }
 
-  bill(data: any) {
+  bill(data: any) { //imprimimos la data en billing -> para visualizar que si ha llegado la comunicaion al servicio
     this.logger.log('Billing...', data);
   }
 }
