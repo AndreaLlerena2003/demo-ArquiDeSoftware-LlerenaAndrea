@@ -105,4 +105,7 @@ Ahí es donde entra Kubernetes: orquesta estos contenedores de manera que pueda 
 - **Balanceo de Carga**: Distribuye el tráfico entre los diferentes contenedores.
 - **Recuperación ante Fallos**: Reinicia automáticamente los contenedores fallidos y reemplaza los nodos defectuosos.
 
+## KUBERNETES VS DOCKER SWAM
+
+
   
