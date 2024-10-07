@@ -48,6 +48,50 @@ Falta de flexibilidad tecnológica: Dado que todos los componentes están juntos
 - **Mantenimiento difícil con el crecimiento:** A medida que la aplicación crece en tamaño y complejidad, se vuelve más difícil mantener el código, realizar actualizaciones y corregir errores sin afectar otras partes del sistema.
 - **Dependencias fuertes entre componentes:** Los componentes dentro de un monolito tienden a tener dependencias estrechas, lo que dificulta la implementación de nuevas características o cambios sin romper otras partes del sistema.
 
+![image](https://github.com/user-attachments/assets/6b6f2494-427a-4f63-8beb-3409580a2e6c)
+
+## ¿Cuando escoger qué?
+La elección entre una arquitectura monolítica y una de microservicios depende de varios factores, como la escala del proyecto, la complejidad del sistema y el equipo de desarrollo. Aquí te doy un ejemplo de cuándo elegir cada una y las razones detrás de esa decisión:
+![image](https://github.com/user-attachments/assets/cc42ffc2-5e46-4f08-b610-7a5f426e27ed)
+
+![image](https://github.com/user-attachments/assets/0a05d8a9-0f2d-4ddb-a7bf-96b57a2eb426)
+
+### Combinaciones que llevan a monolito
+
+1.- Pequeña Escala + Simplicidad + Equipo Pequeño + No Escalabilidad Independiente + No Resiliencia Alta + Latencia baja preocupación.
+(Sistema pequeño, simple, sin necesidad de escalar ni alta resiliencia, con llamadas locales rápidas).
+
+2.- Pequeña Escala + Simplicidad + Equipo Pequeño + No Escalabilidad Independiente + Resiliencia Alta + Latencia baja preocupación.
+(Sistema pequeño y simple, pero con alta resiliencia, y latencia interna baja por la comunicación local).
+
+3.- Pequeña Escala + Simplicidad + Equipo Grande + No Escalabilidad Independiente + No Resiliencia Alta + Latencia baja preocupación.
+(El equipo es grande, pero el sistema sigue siendo pequeño y simple, con baja latencia debido a la ausencia de comunicación distribuida).
+
+4.- Pequeña Escala + Complejidad Alta + Equipo Pequeño + No Escalabilidad Independiente + No Resiliencia Alta + Latencia baja preocupación.
+(Aunque el sistema es complejo, el equipo es pequeño, no requiere escalabilidad ni resiliencia, y mantiene baja latencia local).
+
+**ESCENARIO DE MICROSERVICIOS**
+![image](https://github.com/user-attachments/assets/4a5becc7-9243-495c-8d96-bb4fca050f47)
+
+![image](https://github.com/user-attachments/assets/a801de09-883b-4d1c-961f-25ed974914c2)
+
+### Combinaciones que llevan a microservicios
+Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + Resiliencia Alta + Latencia no es crítica.
+
+(Sistema grande y complejo, con equipos grandes, donde es crítico escalar partes del sistema y se requiere alta resiliencia, pero se acepta mayor latencia entre servicios).
+Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + No Resiliencia Alta + Latencia no es crítica.
+
+(El sistema es grande y complejo, se necesita escalabilidad independiente, pero la resiliencia no es crítica y se acepta mayor latencia).
+Gran Escala + Complejidad Alta + Equipo Pequeño + Escalabilidad Independiente + Resiliencia Alta + Latencia no es crítica.
+
+(El equipo es pequeño, pero el sistema es grande y requiere escalabilidad, resiliencia, y la latencia no es una preocupación central).
+Gran Escala + Complejidad Alta + Equipo Pequeño + Escalabilidad Independiente + No Resiliencia Alta + Latencia no es crítica.
+
+(El sistema es grande y requiere escalabilidad independiente, pero la resiliencia y la latencia no son una gran preocupación).
+Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + Resiliencia Alta + Latencia no es crítica.
+
+(Sistema grande y complejo, con necesidad de escalabilidad y resiliencia, aceptando la mayor latencia que se da en las comunicaciones distribuidas).
+
 
 ## ¿Qué es Kubernetes?
 
