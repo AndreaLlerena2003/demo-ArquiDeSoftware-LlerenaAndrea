@@ -14,7 +14,10 @@ Los **microservicios** son un estilo arquitectónico que descompone una aplicaci
 - **Desarrollo ágil**: Los equipos pueden desarrollar y desplegar servicios sin afectar al resto de la aplicación.
 - **Resiliencia**: Si un servicio falla, el resto de la aplicación puede seguir funcionando.
 - **Flexibilidad tecnológica**: Cada microservicio puede utilizar diferentes tecnologías y lenguajes según las necesidades.
-
+- **Cambios sin afectar otra parte del negocio**
+- **Mantenimiento más fácil**
+- **Aislamiento de servicios**
+  
 ### Desventajas de los Microservicios:
 
 - **Mayor complejidad**: como los microservicios son distribuidos, gestionar la comunicación sobre los servicios puede resultar difícil. Puede que los desarrolladores tengan que escribir código adicional para garantizar una comunicación fluida entre los módulos.
@@ -22,6 +25,29 @@ Los **microservicios** son un estilo arquitectónico que descompone una aplicaci
 - **Complejidad de las pruebas**: las pruebas de microservicios implican situaciones complejas, sobre todo cuando se realizan pruebas de integración en diferentes servicios. Organizar esta tarea puede ser complicado.
 - **Dificultades con la depuración**: puede resultar difícil depurar una aplicación que contiene varios microservicios, cada uno con su propio conjunto de registros. Un único proceso empresarial puede ejecutarse en varias máquinas simultáneamente, lo que agrava la complejidad.
 - **Dificultades en la gestión de datos**: la coherencia de los datos y las transacciones entre varios servicios puede resultar compleja. En la arquitectura de microservicios, la gestión y la coordinación de los datos debe hacerse de forma cuidadosa para proteger la integridad de los datos.
+- **Dificultad al estandarizar**
+
+
+## ¿Qué son los Monolitos?
+
+Los **monolitos** son un estilo arquitectónico en el cual una aplicación completa se construye como una única unidad cohesiva. Todas las funciones de la aplicación se ejecutan en un mismo proceso y cualquier cambio requiere desplegar toda la aplicación nuevamente.
+
+### Ventajas de los Microservicios:
+
+- **Menor repitición de código**
+- **End to End Test**
+- **Deployment rapidos**
+- **Facilidad para controlar versiones:** Sólo hay una versión del sistema a la que se le hacen cambios, lo que facilita el control de versiones y el despliegue.
+- **Rendimiento consistente:** Como todos los componentes se ejecutan en un mismo proceso, no se requiere comunicación a través de la red, lo que puede mejorar el rendimiento.
+  
+### Desventajas de los Microservicios:
+
+- **Escalabilidad limitada:** A medida que la aplicación crece, puede volverse difícil escalarla. Escalar un monolito implica replicar toda la aplicación en lugar de escalar solo partes específicas.
+Falta de flexibilidad tecnológica: Dado que todos los componentes están juntos, toda la aplicación debe estar desarrollada con las mismas tecnologías, lo que limita la capacidad de utilizar diferentes herramientas o lenguajes para diferentes partes.
+- **Despliegue más complicado:** Cualquier cambio, por pequeño que sea, requiere volver a desplegar toda la aplicación, lo que puede aumentar el tiempo de inactividad y el riesgo de errores.
+- **Mantenimiento difícil con el crecimiento:** A medida que la aplicación crece en tamaño y complejidad, se vuelve más difícil mantener el código, realizar actualizaciones y corregir errores sin afectar otras partes del sistema.
+- **Dependencias fuertes entre componentes:** Los componentes dentro de un monolito tienden a tener dependencias estrechas, lo que dificulta la implementación de nuevas características o cambios sin romper otras partes del sistema.
+
 
 ## ¿Qué es Kubernetes?
 
