@@ -1,73 +1,39 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# Arquitectura de Microservicios en Kubernetes
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Introducción
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este proyecto ilustra una arquitectura basada en microservicios, implementada en un entorno de Kubernetes. Los microservicios son un enfoque arquitectónico que permite desarrollar aplicaciones como un conjunto de servicios pequeños, autónomos y desplegables de manera independiente. Este enfoque mejora la escalabilidad, la mantenibilidad y la agilidad del desarrollo.
 
-## Description
+## ¿Qué son los Microservicios?
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Los **microservicios** son un estilo arquitectónico que descompone una aplicación en componentes pequeños y manejables. Cada microservicio es responsable de una funcionalidad específica y se comunica con otros microservicios a través de API bien definidas. Esto permite a los equipos trabajar de manera independiente en diferentes partes de la aplicación, facilitando el desarrollo, las pruebas y la implementación.
 
-## Installation
+### Ventajas de los Microservicios:
 
-```bash
-$ npm install
-```
+- **Escalabilidad**: Los servicios pueden escalarse de forma independiente según la demanda.
+- **Desarrollo ágil**: Los equipos pueden desarrollar y desplegar servicios sin afectar al resto de la aplicación.
+- **Resiliencia**: Si un servicio falla, el resto de la aplicación puede seguir funcionando.
+- **Flexibilidad tecnológica**: Cada microservicio puede utilizar diferentes tecnologías y lenguajes según las necesidades.
 
-## Running the app
+### Desventajas de los Microservicios:
 
-```bash
-# development
-$ npm run start
+- **Mayor complejidad**: como los microservicios son distribuidos, gestionar la comunicación sobre los servicios puede resultar difícil. Puede que los desarrolladores tengan que escribir código adicional para garantizar una comunicación fluida entre los módulos.
+- **Dificultades de implementación y control de versiones**: coordinar las implementaciones y gestionar el control de versiones en varios servicios puede resultar complejo y provocar incidencias de compatibilidad.
+- **Complejidad de las pruebas**: las pruebas de microservicios implican situaciones complejas, sobre todo cuando se realizan pruebas de integración en diferentes servicios. Organizar esta tarea puede ser complicado.
+- **Dificultades con la depuración**: puede resultar difícil depurar una aplicación que contiene varios microservicios, cada uno con su propio conjunto de registros. Un único proceso empresarial puede ejecutarse en varias máquinas simultáneamente, lo que agrava la complejidad.
+- **Dificultades en la gestión de datos**: la coherencia de los datos y las transacciones entre varios servicios puede resultar compleja. En la arquitectura de microservicios, la gestión y la coordinación de los datos debe hacerse de forma cuidadosa para proteger la integridad de los datos.
 
-# watch mode
-$ npm run start:dev
+## ¿Qué es Kubernetes?
 
-# production mode
-$ npm run start:prod
-```
+Kubernetes (abreviado como K8s) es una plataforma de código abierto diseñada para automatizar el despliegue, la escalabilidad y la gestión de aplicaciones en contenedores. Los contenedores permiten empaquetar aplicaciones con todas sus dependencias, lo que facilita su portabilidad y ejecución en diferentes entornos. Sin embargo, gestionar múltiples contenedores y garantizar que funcionen correctamente en grandes entornos distribuidos puede ser complejo.
 
-## Test
+Ahí es donde entra Kubernetes: orquesta estos contenedores de manera que pueda asegurarse de que siempre estén disponibles, correctamente distribuidos en los recursos de hardware, y que se ajusten automáticamente a la demanda. Kubernetes maneja tareas como balanceo de carga, escalado automático, recuperación ante fallos y despliegues continuos, permitiendo a los equipos de desarrollo enfocarse en escribir código sin preocuparse por la infraestructura subyacente.
 
-```bash
-# unit tests
-$ npm run test
+### Características Clave de Kubernetes:
 
-# e2e tests
-$ npm run test:e2e
+- **Orquestación**: Gestiona la implementación y la comunicación entre contenedores.
+- **Escalabilidad**: Escala automáticamente los microservicios según la carga.
+- **Balanceo de Carga**: Distribuye el tráfico entre los diferentes contenedores.
+- **Recuperación ante Fallos**: Reinicia automáticamente los contenedores fallidos y reemplaza los nodos defectuosos.
 
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+  
