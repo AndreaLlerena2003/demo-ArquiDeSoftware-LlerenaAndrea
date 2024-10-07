@@ -76,21 +76,20 @@ La elección entre una arquitectura monolítica y una de microservicios depende 
 ![image](https://github.com/user-attachments/assets/a801de09-883b-4d1c-961f-25ed974914c2)
 
 ### Combinaciones que llevan a microservicios
-Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + Resiliencia Alta + Latencia no es crítica.
+1.- Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + Resiliencia Alta 
+(Sistema grande y complejo, con equipos grandes, donde es crítico escalar partes del sistema y se requiere alta resiliencia).
 
-(Sistema grande y complejo, con equipos grandes, donde es crítico escalar partes del sistema y se requiere alta resiliencia, pero se acepta mayor latencia entre servicios).
-Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + No Resiliencia Alta + Latencia no es crítica.
+2.- Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + No Resiliencia Alta.
+(El sistema es grande y complejo, se necesita escalabilidad independiente, pero la resiliencia no es crítica).
 
-(El sistema es grande y complejo, se necesita escalabilidad independiente, pero la resiliencia no es crítica y se acepta mayor latencia).
-Gran Escala + Complejidad Alta + Equipo Pequeño + Escalabilidad Independiente + Resiliencia Alta + Latencia no es crítica.
+3.- Gran Escala + Complejidad Alta + Equipo Pequeño + Escalabilidad Independiente + Resiliencia Alta .
+(El equipo es pequeño, pero el sistema es grande y requiere escalabilidad, resiliencia.).
 
-(El equipo es pequeño, pero el sistema es grande y requiere escalabilidad, resiliencia, y la latencia no es una preocupación central).
-Gran Escala + Complejidad Alta + Equipo Pequeño + Escalabilidad Independiente + No Resiliencia Alta + Latencia no es crítica.
+4.- Gran Escala + Complejidad Alta + Equipo Pequeño + Escalabilidad Independiente + No Resiliencia Alta .
+(El sistema es grande y requiere escalabilidad independiente, pero la resiliencia.).
 
-(El sistema es grande y requiere escalabilidad independiente, pero la resiliencia y la latencia no son una gran preocupación).
-Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + Resiliencia Alta + Latencia no es crítica.
-
-(Sistema grande y complejo, con necesidad de escalabilidad y resiliencia, aceptando la mayor latencia que se da en las comunicaciones distribuidas).
+5.- Gran Escala + Complejidad Alta + Equipo Grande + Escalabilidad Independiente + Resiliencia Alta
+(Sistema grande y complejo, con necesidad de escalabilidad y resiliencia).
 
 
 ## ¿Qué es Kubernetes?
