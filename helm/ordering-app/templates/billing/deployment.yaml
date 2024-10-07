@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: andrea
+  name: billing
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: billing
+  template:
+    metadata:
+      labels:
+        app: billing
+    spec:
+      containers:
+        - name: billing
+          image: mguay/ordering-app_billing
+          env:
+            - name: RABBIT_MQ_BILLING_QUEUE
+              value: billing
+            - name: RABBIT_MQ_AUTH_QUEUE
+              value: auth
+            - name: MONGODB_URI
+              value: mongodb+srv://andrea:kelocura12345@andreallerena.hr5injm.mongodb.net/?retryWrites=true&w=majority&appName=ANDREALLERENA
+            - name: RABBIT_MQ_URI
+              value: amqps://andrea:kelocura12345@b-fdb8dcd6-3136-4cdd-bc09-a6a5e266ea80.mq.us-east-1.amazonaws.com:5671
