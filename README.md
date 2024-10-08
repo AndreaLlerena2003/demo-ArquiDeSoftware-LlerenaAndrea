@@ -178,6 +178,31 @@ La elección entre EKS y Kubernetes independiente depende de las necesidades del
 ### Conclusión
 Ambas opciones tienen el propósito de orquestar aplicaciones en contenedores, pero las diferencias en gestión, integración, coste, escalabilidad y disponibilidad deben considerarse para guiar la elección entre EKS y Kubernetes independiente.
 
+# Diagrama de Decisión: EKS vs. Kubernetes Independiente
+
+# Diagrama de Decisión: EKS vs. Kubernetes Independiente
+
+```mermaid
+graph TD;
+    A[¿Necesitas gestionar el plano de control manualmente?] -->|Sí| B[¿Requieres mayor control y personalización?]
+    A -->|No| C[¿Prefieres una solución gestionada?]
+    
+    B -->|Sí| D[Selecciona Kubernetes Independiente]
+    B -->|No| E[¿El coste operativo es una preocupación?]
+
+    C -->|Sí| F[Selecciona EKS]
+    C -->|No| G[¿Necesitas integración con servicios de AWS?]
+    
+    E -->|Sí| H[Selecciona Kubernetes Independiente]
+    E -->|No| I[Selecciona EKS]
+    
+    G -->|Sí| J[Selecciona EKS]
+    G -->|No| K[¿Requiere tu proyecto alta disponibilidad?]
+
+    K -->|Sí| L[Selecciona EKS]
+    K -->|No| M[Selecciona Kubernetes Independiente]
+
+
 
 ## Comparativa de Kubernetes Ingress: ALB vs. Nginx
 En el entorno de Kubernetes, es esencial gestionar eficientemente el tráfico entrante hacia los servicios. Existen dos soluciones populares para este propósito: Kubernetes Ingress con AWS Application Load Balancer (ALB) y Kubernetes Ingress con Nginx. Cada una ofrece características distintas que pueden adaptarse a diferentes necesidades organizativas.
@@ -246,4 +271,13 @@ graph TD;
     K -->|Sí| N[Selecciona Nginx]
     K -->|No| O[Selecciona ALB]
 
+
+
+
+
+
+
+
+    K -->|Sí| L[Selecciona EKS]
+    K -->|No| M[Selecciona Kubernetes Independiente]
 
