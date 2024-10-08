@@ -210,7 +210,7 @@ Elegir entre Kubernetes Ingress con ALB y Nginx se basa en los siguientes criter
 - **Ventajas**:
   - No está vinculado a un proveedor específico de nube, lo que facilita su uso en entornos multicloud e híbridos.
 
-## Consecuencias
+### Consecuencias
 - **Si se elige ALB**:
   - Se obtiene una integración fluida con los servicios de AWS y características avanzadas de seguridad, aunque con la limitación de estar atado a la infraestructura de AWS.
 
