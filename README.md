@@ -177,3 +177,45 @@ La elección entre EKS y Kubernetes independiente depende de las necesidades del
 
 ### Conclusión
 Ambas opciones tienen el propósito de orquestar aplicaciones en contenedores, pero las diferencias en gestión, integración, coste, escalabilidad y disponibilidad deben considerarse para guiar la elección entre EKS y Kubernetes independiente.
+
+
+## Comparativa de Kubernetes Ingress: ALB vs. Nginx
+En el entorno de Kubernetes, es esencial gestionar eficientemente el tráfico entrante hacia los servicios. Existen dos soluciones populares para este propósito: Kubernetes Ingress con AWS Application Load Balancer (ALB) y Kubernetes Ingress con Nginx. Cada una ofrece características distintas que pueden adaptarse a diferentes necesidades organizativas.
+
+Elegir entre Kubernetes Ingress con ALB y Nginx se basa en los siguientes criterios:
+
+### 1. AWS Application Load Balancer (ALB) Ingress
+- **Propósito e Integración**:
+  - ALB se integra de manera estrecha con el ecosistema de AWS, ofreciendo una infraestructura de aplicación cohesiva para clústeres de Kubernetes alojados en AWS.
+
+- **Balanceo de Carga en Capa 7**:
+  - Permite enrutar el tráfico basado en criterios avanzados como rutas de URL, nombres de host y encabezados, ideal para escenarios complejos.
+
+- **Características Avanzadas**:
+  - Soporta AWS WAF (Web Application Firewall) y terminación SSL/TLS, simplificando el manejo de conexiones seguras.
+
+- **Limitaciones**:
+  - Exclusivo para AWS, lo que lo hace menos adecuado para implementaciones multicloud o híbridas.
+
+### 2. Nginx Ingress Controller
+- **Versatilidad y Compatibilidad Multinube**:
+  - Nginx se puede desplegar en diversos entornos, incluyendo diferentes proveedores de nube y configuraciones on-premises, lo que lo convierte en una opción adecuada para infraestructuras complejas.
+
+- **Flexibilidad de Enrutamiento**:
+  - Ofrece opciones de enrutamiento flexibles, incluyendo hosting virtual basado en nombre y reescrituras de URL.
+
+- **Control de Configuración**:
+  - Requiere más configuración manual, lo que puede ser una ventaja para usuarios avanzados, pero un desafío para quienes son menos experimentados.
+
+- **Ventajas**:
+  - No está vinculado a un proveedor específico de nube, lo que facilita su uso en entornos multicloud e híbridos.
+
+## Consecuencias
+- **Si se elige ALB**:
+  - Se obtiene una integración fluida con los servicios de AWS y características avanzadas de seguridad, aunque con la limitación de estar atado a la infraestructura de AWS.
+
+- **Si se elige Nginx**:
+  - Se permite una mayor flexibilidad y personalización en el enrutamiento, además de la posibilidad de utilizarlo en múltiples nubes, aunque a expensas de una mayor complejidad en la configuración.
+
+### Conclusión
+La decisión entre ALB y Nginx debe basarse en los requisitos específicos de la organización. Para aplicaciones en AWS que requieren integración directa con servicios de AWS, ALB es la mejor opción. Sin embargo, para entornos más versátiles que requieren personalización y compatibilidad multicloud, Nginx es preferible.
