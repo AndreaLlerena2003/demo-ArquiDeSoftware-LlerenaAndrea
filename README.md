@@ -140,4 +140,40 @@ Al elegir una plataforma de orquestación, se deben considerar aspectos como esc
 
 ### Recomendación
 Si el objetivo es soportar aplicaciones a gran escala con alta disponibilidad, Kubernetes es la opción recomendada. Para proyectos que priorizan la simplicidad y un ciclo de desarrollo rápido, Docker Swarm puede ser más adecuado.
-  
+
+## Comparación entre EKS en AWS y Kubernetes Independiente
+
+Kubernetes es una plataforma de código abierto desarrollada por Google para la automatización del despliegue, escalado y operación de contenedores de aplicaciones. Amazon Elastic Kubernetes Service (EKS) es un servicio gestionado por AWS que facilita el uso de Kubernetes en la nube.
+
+### Decisión
+Se identifican las siguientes diferencias clave entre EKS y Kubernetes independiente:
+
+1. **Gestión y Operaciones**
+   - **Kubernetes Independiente**: Requiere configuración y gestión manual considerable. Todas las tareas, desde la configuración del plano de control hasta la gestión de nodos, deben realizarse manualmente.
+   - **EKS**: AWS gestiona el plano de control de Kubernetes, incluyendo actualizaciones, parches y escalabilidad, lo que reduce la carga operativa para los desarrolladores.
+
+2. **Integración con Servicios de AWS**
+   - **Kubernetes Independiente**: La integración con servicios de la nube debe hacerse manualmente, lo que puede no ser tan fluido.
+   - **EKS**: Se integra naturalmente con servicios de AWS como Elastic Load Balancer (ELB), IAM y CloudWatch, facilitando su uso.
+
+3. **Coste**
+   - **Kubernetes Independiente**: Puede resultar menos costoso en términos de infraestructura, pero el coste total debe incluir el tiempo y recursos de gestión.
+   - **EKS**: Implica una tarifa de gestión, pero reduce la carga operativa y ofrece integración fluida con servicios de AWS.
+
+4. **Escalabilidad y Disponibilidad**
+   - **Kubernetes Independiente**: Puede tener limitaciones en escalabilidad y disponibilidad.
+   - **EKS**: Aprovecha la infraestructura de AWS para ofrecer mejor escalabilidad y disponibilidad, permitiendo la creación de múltiples Zonas de Disponibilidad.
+
+### Datos interesantes sobre EKS
+- Permite ejecutar un servicio de Kubernetes gestionado sin necesidad de instalar, operar y mantener el plano de control o nodos de Kubernetes.
+- EKS ejecuta instancias del plano de control de Kubernetes en múltiples Zonas de Disponibilidad para garantizar alta disponibilidad.
+- Detecta automáticamente y reemplaza instancias del plano de control no saludables.
+- Proporciona actualizaciones automáticas de versiones y parches para las instancias del plano de control.
+
+### Consecuencias
+La elección entre EKS y Kubernetes independiente depende de las necesidades del proyecto y los recursos disponibles:
+- **Kubernetes Independiente**: Opción adecuada si se requiere mayor control y personalización o si se desea desplegar en múltiples proveedores de nube o en instalaciones locales.
+- **EKS**: Mejor opción si se prefiere una solución menos intensa operativamente con integración fluida en AWS.
+
+### Conclusión
+Ambas opciones tienen el propósito de orquestar aplicaciones en contenedores, pero las diferencias en gestión, integración, coste, escalabilidad y disponibilidad deben considerarse para guiar la elección entre EKS y Kubernetes independiente.
