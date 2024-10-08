@@ -219,3 +219,31 @@ Elegir entre Kubernetes Ingress con ALB y Nginx se basa en los siguientes criter
 
 ### Conclusión
 La decisión entre ALB y Nginx debe basarse en los requisitos específicos de la organización. Para aplicaciones en AWS que requieren integración directa con servicios de AWS, ALB es la mejor opción. Sin embargo, para entornos más versátiles que requieren personalización y compatibilidad multicloud, Nginx es preferible.
+
+
+### Diagrama de Decisión: ALB vs. Nginx Ingress
+
+```mermaid
+graph TD;
+    A[¿Estás en el ecosistema de AWS?] -->|Sí| B[¿Necesitas características avanzadas de seguridad?]
+    A -->|No| C[¿Necesitas compatibilidad multicloud?]
+    
+    B -->|Sí| D[¿Requiere tu aplicación balanceo de carga en Capa 7?]
+    B -->|No| E[¿Requiere integración con servicios de AWS?]
+    
+    C -->|Sí| F[Selecciona Nginx]
+    C -->|No| G[¿Requiere tu aplicación un enrutamiento complejo?]
+    
+    D -->|Sí| H[Selecciona ALB]
+    D -->|No| I[Selecciona ALB]
+
+    E -->|Sí| J[Selecciona ALB]
+    E -->|No| K[¿Tu equipo tiene experiencia con Nginx?]
+
+    G -->|Sí| L[Selecciona Nginx]
+    G -->|No| M[Selecciona Nginx]
+
+    K -->|Sí| N[Selecciona Nginx]
+    K -->|No| O[Selecciona ALB]
+
+
