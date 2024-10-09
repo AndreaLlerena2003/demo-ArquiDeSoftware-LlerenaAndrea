@@ -141,6 +141,32 @@ Al elegir una plataforma de orquestación, se deben considerar aspectos como esc
 ### Recomendación
 Si el objetivo es soportar aplicaciones a gran escala con alta disponibilidad, Kubernetes es la opción recomendada. Para proyectos que priorizan la simplicidad y un ciclo de desarrollo rápido, Docker Swarm puede ser más adecuado.
 
+### Diagrama de comparaión Kubernetes vs Docker Swarm
+
+```mermaid
+graph TD;
+    A[¿Necesitas escalabilidad para aplicaciones complejas?] -->|Sí| B[Kubernetes]
+    A -->|No| C[Docker Swarm]
+
+    B --> D[¿Es importante la personalización avanzada?]
+    C --> E[¿Buscas facilidad de uso y simplicidad?]
+
+    D -->|Sí| F[Kubernetes]
+    D -->|No| G[Kubernetes]
+
+    E -->|Sí| H[Docker Swarm]
+    E -->|No| I[Kubernetes]
+
+    G --> J[¿Requieres integración con múltiples herramientas y ecosistemas?]
+    H --> K[¿Buscas despliegue rápido y sencillo?]
+
+    J -->|Sí| L[Kubernetes]
+    J -->|No| M[Docker Swarm]
+
+    K -->|Sí| N[Docker Swarm]
+    K -->|No| O[Kubernetes]
+```
+
 ## Comparación entre EKS en AWS y Kubernetes Independiente
 
 Kubernetes es una plataforma de código abierto desarrollada por Google para la automatización del despliegue, escalado y operación de contenedores de aplicaciones. Amazon Elastic Kubernetes Service (EKS) es un servicio gestionado por AWS que facilita el uso de Kubernetes en la nube.
