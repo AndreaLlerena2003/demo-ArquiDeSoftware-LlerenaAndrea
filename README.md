@@ -289,12 +289,41 @@ graph TD;
     E -->|No| K[¿Tu equipo tiene experiencia con Nginx?]
 
     G -->|Sí| L[Selecciona Nginx]
-    G -->|No| M[Selecciona Nginx]
-
+    G -->|No| M[Selecciona Nginx
     K -->|Sí| N[Selecciona Nginx]
     K -->|No| O[Selecciona ALB]
 
 ```
+
+# Demo - Despliegue de una arquitectura de microservicios con kubernetes en AWS EKS 
+
+La demo se basa en desplegar tres servicios que se comunian entre si usando RabbitMQ (para el cual usamos Amazon MQ en la arquitectura). Asimismo, los tres utilizan una base de datos no relacional, mongoDb para almacenar información. Para su despleigue se utiliza AWS EKS, el cual se muestra mejor en la arquitectura presentada.
+
+## Arquitectura Cloud 
+
+![image](https://github.com/user-attachments/assets/53a6362f-0657-4e48-bb3d-787f63e22f3d)
+
+
+Este diagrama representa una arquitectura en AWS que utiliza Amazon EKS, Amazon MQ, balanceo de carga elástica (ELB), y un VPC conectado mediante peering con MongoDB para los servicios de base de datos. Los componentes clave son:
+
+- **Amazon EKS**: Un servicio de Kubernetes alojado en AWS para gestionar aplicaciones contenedorizadas.
+- **Amazon MQ**: Un servicio de mensajería integrado dentro del VPC para manejar la comunicación entre servicios.
+- **Elastic Load Balancing (ELB)**: Distribuye el tráfico entrante a través de varios nodos dentro del clúster.
+- **Nodos**: Ubicados en subredes privadas distribuidas en dos zonas de disponibilidad para garantizar alta disponibilidad.
+- **Peering de VPC**: Conecta el VPC principal con un segundo VPC donde está alojado MongoDB, permitiendo una comunicación segura.
+
+## Arquitectura de Servicios Kubernetes
+
+![image](https://github.com/user-attachments/assets/dc1819c3-f431-4baf-8da0-ee5ddeb2dc2e)
+
+Este diagrama muestra una arquitectura típica de servicios en Kubernetes utilizando un balanceador de carga para gestionar el tráfico entrante hacia diferentes microservicios. Los elementos clave incluyen:
+
+- **Load Balancer HTTPS**: Dirige el tráfico externo hacia el clúster. --> Usamos el AWS ALB
+- **Ingress (ing)**: Administra el acceso a los servicios, recibiendo tráfico desde el balanceador de carga y enrutándolo internamente.  --> Usamos el AWS ALB Ingress
+- **Servicios (svc)**: Conectan el tráfico a los pods específicos que ejecutan diferentes servicios.
+- **Pods**: Ejecutando distintos microservicios como `orders`, `billing` y `auth`, todos dentro del mismo namespace.
+
+Esta configuración resalta el uso de un balanceador de carga, un ingress y servicios para escalar los microservicios de manera eficiente dentro de un clúster de Kubernetes.
 
 
 
