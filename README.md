@@ -289,11 +289,11 @@ graph TD;
     E -->|No| K[¿Tu equipo tiene experiencia con Nginx?]
 
     G -->|Sí| L[Selecciona Nginx]
-    G -->|No| M[Selecciona Nginx
+    G -->|No| M[Selecciona Nginx]
     K -->|Sí| N[Selecciona Nginx]
     K -->|No| O[Selecciona ALB]
-
 ```
+
 
 # Demo - Despliegue de una arquitectura de microservicios con kubernetes en AWS EKS 
 
