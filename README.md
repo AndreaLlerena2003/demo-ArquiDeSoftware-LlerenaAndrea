@@ -325,6 +325,28 @@ Este diagrama muestra una arquitectura típica de servicios en Kubernetes utiliz
 
 Esta configuración resalta el uso de un balanceador de carga, un ingress y servicios para escalar los microservicios de manera eficiente dentro de un clúster de Kubernetes.
 
+## Herramienta utlizada para el desliegue: HELM
+
+**Helm** es una herramienta de gestión de paquetes para Kubernetes, que simplifica la instalación, actualización y gestión de aplicaciones dentro de un clúster.
+
+### Conceptos Clave
+
+- **Charts**: Conjuntos de archivos YAML que definen los recursos necesarios para ejecutar una aplicación en Kubernetes.
+    Un chart puede incluir archivos como:
+  
+    - **Deployment**: Define cómo se ejecutarán los contenedores de la aplicación.
+    - **Services**: Configura cómo se exponen los contenedores.
+    - **ConfigMaps/Secrets**: Almacenan configuraciones sensibles o no sensibles.
+    - **Ingress**: Define cómo el tráfico externo accede a la aplicación
+    - **Release**: Una instancia instalada de un chart en Kubernetes. Cada actualización genera una nueva release.
+    - **Plantillas**: Permiten parametrizar configuraciones mediante variables, facilitando la personalización del despliegue.
+
+### Beneficios
+
+- **Simplicidad**: Instalación de aplicaciones con un solo comando.
+- **Consistencia**: Despliegue coherente en entornos de desarrollo, pruebas y producción.
+- **Reusabilidad**: Uso de charts compartidos y reutilizables.
+- **Gestión de Versiones**: Facilita actualizaciones y retrocesos (rollback) de aplicaciones.
 
 
 
