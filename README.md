@@ -350,3 +350,6 @@ Esta configuración resalta el uso de un balanceador de carga, un ingress y serv
 
 
 
+DEMO: https://streamyard.com/r79dgvp86fgg
+
+
